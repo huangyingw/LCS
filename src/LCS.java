@@ -19,7 +19,12 @@ public class LCS {
 		}
 	}
 
+	public void ShowCount() {
+		System.out.println(count);
+	}
+
 	public int BruteForce(int n, int m) {
+		count++;
 		if (m == 0)
 			return 0;
 		else if (n == 0)
@@ -30,7 +35,14 @@ public class LCS {
 			return Math.max(BruteForce(n, m - 1), BruteForce(n - 1, m));
 	}
 
+	private int count = 0;
+
+	public void resetCount() {
+		count = 0;
+	}
+
 	public int Memorized(int m, int n) {
+		count++;
 		if (L[m][n] > 0)
 			return L[m][n];
 		if (n == 0) {
